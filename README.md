@@ -18,7 +18,7 @@ esp32:
     platform_version: '4.0.0'
 
 external_components:
-  - source: github://epiclabs-io/esphome-modbus-server@master
+  - source: github://aj-nagrom/esphome-modbus-server@master
     refresh: 60s
     components:
       - modbus_server
@@ -49,6 +49,8 @@ modbus_server:
   - id: modbuserver
     uart_id: intmodbus
     address: 1 # slave address
+    re_pin: GPIO32 # optional
+    de_pin: GPIO14 # optional
     holding_registers:
       - start_address: 79 # starting register range
         default: 82 # default value for all those registers
